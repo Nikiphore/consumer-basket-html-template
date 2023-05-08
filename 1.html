@@ -23,14 +23,14 @@ body {
   background-color: white;
 }
 header{
-	background-color: green;
+	background-color: #3333ff;
 	color: white;
 	height: 100px;
 	text-align: center;
 	padding-top: 10px;
 }
 footer{
-	background-color: green;
+	background-color: #3333ff;
 	color: white;
 	height: 70px;
 	text-align: center;
@@ -66,7 +66,7 @@ hr {
 
 /* Set a style for the submit button */
 .registerbtn {
-  background-color: #04AA6D;
+  background-color: #00cc00;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -104,7 +104,9 @@ table{
 	<header>
 		<h2>მაღაზია "მაგნიტი"<br>სამომხმარებლო კალათა</h2>
 	</header>
-	  <i class="fa fa-shopping-cart" style="font-size:10em;color:green;"></i>
+	<br>
+	  <i class="fa fa-shopping-basket" style="font-size:10em;color:#3333ff;"></i>
+	  <br><br>
 	  <table border='1' id="produqtebis_sia">
 	  
 	  </table>
@@ -121,15 +123,15 @@ table{
 
 		<label for="NUM"><b>რაოდენობა</b></label>
 		<input type="number" name="NUM" id="NUM" value="1">
-		<hr>
+		<!--<hr> -->
 		<p id="Note"></p>
-		<button type="button" onclick="salaro();" class="registerbtn">დასტური</button>
+		<button type="reset" onclick="salaro();" class="registerbtn">დასტური</button>
 		
 		<button type="button" onclick="qviTari();" class="registerbtn">ქვითარი</button>
 	
 		<button type="reset" class="registerbtn" style="background-color: red;">წაშლა</button>
 		
-		<button type="button" class="registerbtn" onclick="javascript:location.reload();" >თავიდან არჩევა</button>
+		<button type="button" class="registerbtn" style="background-color: #ff6600;" onclick="javascript:location.reload();" >თავიდან არჩევა</button>
 	  </div>
 	  
 	</form>
@@ -161,12 +163,10 @@ table{
 		function salaro(){
 		   N++;// N - კალათში პროდუქტების რაოდენობა
 		  document.getElementById("Note").innerHTML = "";
-		  //if(document.getElementById("PructName").value == ""){
 		  if(document.getElementById("PructName").value.length == 0){
 			document.getElementById("Note").innerHTML = "გთხოვთ შემოიტანოთ პროდუქტის დასახელება";
 		  }
 		  else
-		  //if( document.getElementById("price").value == "" ){
 		  if( document.getElementById("price").value.length == 0 ){
 		    document.getElementById("Note").innerHTML = "გთხოვთ შემოიტანოთ პროდუქტის ღირებულება";
 		  }
@@ -180,9 +180,7 @@ table{
 			console.log("Prodacts[" + N + "] = " +  Prodacts[N]);
 			Sum = Sum + Prodacts[N].Price * Prodacts[N].Number;
 			Sum = Math.round(Sum * 100)/100;
-			//console.log(Prodacts[N].PropertiesConcat(document.getElementById("PructName").value
-			//			,document.getElementById("price").value
-			//			,document.getElementById("NUM").value) + "Sum = " + Sum);
+
 			var Tanxa = Prodacts[N].Price * Prodacts[N].Number;
 			document.getElementById("produqtebis_sia").innerHTML = 
 			document.getElementById("produqtebis_sia").innerHTML
