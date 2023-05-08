@@ -120,7 +120,6 @@ table{
 		
 		
 		<label for="NUM"><b>ზომის ერთეული</b></label>
-		<!--<input type="number" name="zomis_erTeuli" id="zomis_erTeuli">-->
 		<select name="zomis_erTeuli" id="zomis_erTeuli">
 			<option></option>
 			<option>კგ</option>
@@ -153,12 +152,12 @@ table{
 	</form>
 	  <script>
 	    class Product{
-		  constructor(Name,Number,z_erTeuli,Price,TaroN){
+		  constructor(Name,Number,z_erTeuli,TaroN,Price){
 		    this.Name        = Name;
 			this.Number      = Number;
 			this.z_erTeuli   = z_erTeuli;
-			this.Price       = Price;
 			this.TaroN       = TaroN;
+			this.Price       = Price;
 		  }
 		  PropertiesConcat(n,N,z,p,tN){
 		    return this.Name + " "  + this.Number + this.z_erTeuli + " " + this.Price + " " + this.TaroN; 
@@ -203,13 +202,14 @@ table{
 						 document.getElementById("PructName").value
 						,document.getElementById("NUM").value
 						,document.getElementById("zomis_erTeuli").value
-						,document.getElementById("erTeulis_fasi").value
 						,document.getElementById("shelfN").value
+						,document.getElementById("erTeulis_fasi").value
 			);
 			
 			Sum = Sum + Prodacts[N].Price * Prodacts[N].Number;
 			Sum = Math.round(Sum * 100)/100;
-			Jami = Jami + Sum;
+			Jami = Prodacts[N].Price * Prodacts[N].Number;
+			console.log(Prodacts[N].Price, Prodacts[N].Number);
 			document.getElementById("kalaTaSi").innerHTML = document.getElementById("kalaTaSi").innerHTML
 											+ "<tr>" 
 												+ "<td>" + Prodacts[N].Name + "</td>"
@@ -217,14 +217,14 @@ table{
 												+ "<td align='right'>" + Prodacts[N].z_erTeuli + "</td>"
 												+ "<td align='right'>" + Prodacts[N].Price + "</td>"
 												+ "<td align='right'>" + Prodacts[N].TaroN + "</td>"
-												+ "<td align='right'>" + Sum + "</td>"
+												+ "<td align='right'>" + Jami + "</td>"
 											+ "</tr>";
 			document.getElementById("Salaro").reset();
 		  }
 		}
 		function Tanxasul(){
 		  document.getElementById("kalaTaSi").innerHTML = document.getElementById("kalaTaSi").innerHTML 
-					+ "<tr><td colspan='5' align='right'>სულ:</td><td align='right'>" + Jami + "</td></tr>";
+					+ "<tr><td colspan='5' align='right'>სულ:</td><td align='right'>" + Sum + "</td></tr>";
 		}
 	  
 	    
